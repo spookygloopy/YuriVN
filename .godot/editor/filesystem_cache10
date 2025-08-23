@@ -1,3 +1,9 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1755909529
-icon.svg::CompressedTexture2D::3625404071564409935::1755909524::1755909530::1::::<><><>0<>0<>7cdf1a15c4ff43d9141a61e36f908b17<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+::res://::1755968599
+icon.svg::CompressedTexture2D/CompressedTexture2D::3625404071564409935::1755909524::1755966624::1::::<><><>0<>0<>7cdf1a15c4ff43d9141a61e36f908b17<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+::res://scenes/::1755968173
+player.gd::GDScript/GDScript::3591451074424601696::1755967677::0::1::::<>CharacterBody3D<><>0<>0<><>::
+world.tscn::PackedScene/PackedScene::8724797440769622121::1755968173::0::1::::<><><>0<>0<><>::uid://brfyw6xxrgu21::::res://scenes/player.gd
+::res://scripts/::1755968628
+IMG_9301.jpg::CompressedTexture2D::1042586264723154110::1755968628::1755968629::1::::<><><>0<>0<>0741c2cb6628ad7e107f2bd5faa2e30d<>res://.godot/imported/IMG_9301.jpg-2de1e82719d0a5e67c493473ecfe711d.ctex::
+player.gd::GDScript/GDScript::1258748452573607220::1755967342::0::1::::<>CharacterBody3D<><>0<>0<><>::

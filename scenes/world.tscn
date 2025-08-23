@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwkmey31u57sv"]
+
+[ext_resource type="Script" uid="uid://brfyw6xxrgu21" path="res://scenes/player.gd" id="1_nnsk1"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e5uuo"]
+height = 1.8
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nnsk1"]
+height = 1.2
+
+[node name="world" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+
+[node name="stage" type="Node3D" parent="."]
+transform = Transform3D(3.02752, -0.00212135, 0.0065304, 0.00642531, 0.999998, -0.00325285, -0.00407018, 0.000673242, 4.85235, 0.00135883, -0.640548, -0.000431245)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="stage"]
+transform = Transform3D(8.20326, -2.07737e-09, 1.07568e-07, -1.12323e-10, 0.269697, 8.61473e-09, -1.32248e-07, 1.00408e-09, 5.55851, -3.49383e-09, -0.559012, -0.0461331)
+use_collision = true
+size = Vector3(1, 1, 1.59668)
+
+[node name="env" type="Node3D" parent="."]
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.116764, 0)
+script = ExtResource("1_nnsk1")
+
+[node name="standing_collision" type="CollisionShape3D" parent="Player"]
+shape = SubResource("CapsuleShape3D_e5uuo")
+
+[node name="crouch_collision" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.007, -0.29218, 0)
+shape = SubResource("CapsuleShape3D_nnsk1")
+disabled = true
+
+[node name="Head" type="Node3D" parent="Player"]
+
+[node name="Camera3D" type="Camera3D" parent="Player/Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35642, 0)
+
+[node name="RayCast3D" type="RayCast3D" parent="Player"]
+transform = Transform3D(1, -0.000415066, 0.000534468, 0.000416276, 0.999997, -0.00224467, -0.000533532, 0.0022449, 0.999997, 0.0134768, 0.0679383, -0.00405246)
+target_position = Vector3(0, 2, 0)
