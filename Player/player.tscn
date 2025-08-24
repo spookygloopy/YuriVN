@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6a762l6e3huv"]
+
+[ext_resource type="Script" uid="uid://7wkb77bu4ay0" path="res://Player/player.gd" id="1_ca0rf"]
+[ext_resource type="PackedScene" uid="uid://hy35bfoocg0h" path="res://Player/interact_ray.tscn" id="2_4ntmi"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ca0rf"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ca0rf"]
+
+[node name="Player" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 3
+floor_snap_length = 0.5
+script = ExtResource("1_ca0rf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_ca0rf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_ca0rf")
+
+[node name="Head" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.704379, 0.283276)
+
+[node name="InteractRay" parent="Head" instance=ExtResource("2_4ntmi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0115418, -0.283276)

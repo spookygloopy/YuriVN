@@ -1,0 +1,52 @@
+[gd_scene load_steps=10 format=3 uid="uid://bc7ntv8omdwwk"]
+
+[ext_resource type="PackedScene" uid="uid://b6a762l6e3huv" path="res://Player/player.tscn" id="1_yfa23"]
+[ext_resource type="Texture2D" uid="uid://dhw7c4n8oftjn" path="res://exterior/kloofendal_48d_partly_cloudy_puresky_2k.hdr" id="2_xregt"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3ira2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hxhys"]
+albedo_color = Color(0.563511, 0.483978, 0.323373, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lxp54"]
+material = SubResource("StandardMaterial3D_hxhys")
+size = Vector3(500, 1, 500)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jda1s"]
+size = Vector3(500, 1, 500)
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_su4bj"]
+panorama = ExtResource("2_xregt")
+
+[sub_resource type="Sky" id="Sky_wbqg2"]
+sky_material = SubResource("PanoramaSkyMaterial_su4bj")
+
+[sub_resource type="Environment" id="Environment_hxhys"]
+background_mode = 2
+sky = SubResource("Sky_wbqg2")
+
+[node name="Test" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_yfa23")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.50253, 0)
+
+[node name="Env" type="Node3D" parent="."]
+
+[node name="Ground" type="StaticBody3D" parent="Env"]
+physics_material_override = SubResource("PhysicsMaterial_3ira2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Env/Ground"]
+mesh = SubResource("BoxMesh_lxp54")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Env/Ground"]
+shape = SubResource("BoxShape3D_jda1s")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Env"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 16.4631, 11.2003, 0)
+light_color = Color(0.863711, 0.5367, 0.835268, 1)
+light_energy = 15.569
+light_indirect_energy = 1.525
+spot_range = 21.22
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Env"]
+environment = SubResource("Environment_hxhys")
