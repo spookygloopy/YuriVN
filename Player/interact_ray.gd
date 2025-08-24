@@ -3,7 +3,7 @@ extends RayCast3D
 @onready var prompt = $prompt
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	prompt.text = "."
 
 	if is_colliding():
